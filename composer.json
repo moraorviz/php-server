@@ -1,0 +1,13 @@
+{
+    "name": "mario/php-server",
+    "description": "poo",
+    "authors": [
+        {
+            "name": "Mario",
+            "email": "moraorviz@gmail.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "^3.11"
+    }
+}
