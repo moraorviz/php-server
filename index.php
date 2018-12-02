@@ -48,6 +48,8 @@ $app->get('/php-api/v1/book', function(Request $req, Response $res, array $args)
         while($row = $result->fetch_array(MYSQLI_ASSOC)) {
             $myArray[] = $row;
         }
+    } else {
+        echo "Fallo la query: {$db->error}\n";
     }
     return $res->withJson([
         'message' => json_encode($myArray)
