@@ -58,6 +58,16 @@ $app->get('/php-api/v1/book', function(Request $req, Response $res, array $args)
 
 $app->post('/php-api/v1/book', function(Request $req, Response $res): Response {
     $body = $req->getParsedBody();
+    $vec = array_values($body);
+    $campo1 = $vec[0];
+    $campo2 = $vec[1];
+    $campo3 = $vec[2];
+    $campo4 = $vec[3];
+    $querys = "( '". $campo1."','".$campo2."','".$campo3."', '".$campo4."')";
+    var_dump($querys);
+    $db = new DB('127.0.0.1', 'mariophp', 'admin', 'test');
+    $db->create('books', $querys);
+
     return $res->withJson([
         'message' => 'persistiendo book ' . $body['Title']
     ]);

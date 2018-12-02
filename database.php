@@ -18,9 +18,9 @@ Class DB {
         return $this ->query($query);
     }
     
-    
-    public function create($table, $arrayValues) {
-        $query = "INSERT INTO  `" . $table . " ($arrayValues)";  //TODO: setup arrayVal
-        $results = $this->db->query($link, $query);
+    public function create($table, $values) {
+        $query = "INSERT INTO " . $table . "(Title, Author, PublishedDate, isbn)" 
+            . "VALUES " . $values;
+        $results = $this->db->query($query);
     }
 }
