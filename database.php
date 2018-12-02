@@ -9,7 +9,7 @@ Class DB {
     }
     
     public function query($sql) {
-        $results =   $this->db->query($sql);
+        $results =   $this->db->query($sql) or trigger_error(mysqli_error()." ".query);
         return $results;
     }
     
