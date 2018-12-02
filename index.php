@@ -44,12 +44,10 @@ $app->get('/php-api/v1', function(Request $req, Response $res, array $args): Res
 $app->get('/php-api/v1/book', function(Request $req, Response $res, array $args): Response {
     $db = new DB('127.0.0.1', 'mario', 'admin', 'produccion');
     $myArray = array();
-    if ($result = $db->query("SELECT * FROM 'books'")) {
+    if ($result = $db->query("SELECT * FROM `books`")) {
         while($row = $result->fetch_array(MYSQLI_ASSOC)) {
             $myArray[] = $row;
         }
-    } else {
-        echo "Fallo la query: {$db->error}\n";
     }
     return $res->withJson([
         'message' => json_encode($myArray)
