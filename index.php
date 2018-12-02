@@ -29,7 +29,7 @@ $app->get("/php-api", function (Request $req, Response $res): Response {
 });
 
 $app->get('/php-api/v1', function(Request $req, Response $res, array $args): Response {
-       $db = new DB('127.0.0.1', 'mariophp', 'admin', 'test');
+       $db = new DB('127.0.0.1', 'mario', 'admin', 'produccion');
        $myArray = array();
        if ($result = $db->query("SHOW TABLES")) {
            while($row = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -43,7 +43,7 @@ $app->get('/php-api/v1', function(Request $req, Response $res, array $args): Res
 );
 
 $app->get('/php-api/v1/book', function(Request $req, Response $res, array $args): Response {
-    $db = new DB('127.0.0.1', 'mariophp', 'admin', 'test');
+    $db = new DB('127.0.0.1', 'mario', 'admin', 'produccion');
         $myArray = array();
         if ($result = $db->query("SELECT * FROM books")) {
             while($row = $result->fetch_array(MYSQLI_ASSOC)) {
@@ -65,7 +65,7 @@ $app->post('/php-api/v1/book', function(Request $req, Response $res): Response {
     $campo4 = $vec[3];
     $querys = "( '". $campo1."','".$campo2."','".$campo3."', '".$campo4."')";
     var_dump($querys);
-    $db = new DB('127.0.0.1', 'mariophp', 'admin', 'test');
+    $db = new DB('127.0.0.1', 'mario', 'admin', 'produccion');
     $db->create('books', $querys);
 
     return $res->withJson([
