@@ -52,7 +52,7 @@ $app->get('/php-api/v1/book', function(Request $req, Response $res, array $args)
     }
     var_dump($myArray);
     return $res->withJson([
-        'message' => json_encode($myArray, JSON_PRETTY_PRINT)
+         json_encode($myArray, JSON_PRETTY_PRINT)
     ]);
 });
 
