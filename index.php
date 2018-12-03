@@ -36,9 +36,8 @@ $app->get('/php-api/v1', function(Request $req, Response $res, array $args): Res
                $myArray[] = $row;
            }
        }
-       var_dump($myArray);	
        return $res->withJson([
-           'message' => json_encode($myArray)
+           json_encode($myArray)
         ]);
 });
 
@@ -50,9 +49,8 @@ $app->get('/php-api/v1/book', function(Request $req, Response $res, array $args)
             $myArray[] = $row;
         }
     }
-    var_dump($myArray);
     return $res->withJson([
-         json_encode($myArray, JSON_PRETTY_PRINT)
+         json_encode($myArray)
     ]);
 });
 
